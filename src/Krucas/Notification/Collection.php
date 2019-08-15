@@ -34,9 +34,9 @@ class Collection extends BaseCollection implements Renderable
      * @param Message $message
      * @return \Krucas\Notification\Collection
      */
-    public function add(Message $message)
-    {
-        $this->queue->insert($message, is_null($message->getPosition()) ? null : -$message->getPosition());
+    public function add($message)
+    {        
+	$this->queue->insert($message, is_null($message->getPosition()) ? null : -$message->getPosition());
 
         $this->copyQueue(clone $this->queue);
 
